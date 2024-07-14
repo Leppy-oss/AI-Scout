@@ -2,7 +2,7 @@ import { getTeams } from './storage';
 
 export default async function handler(req, res) {
     if (req.method == 'GET') {
-        const { season, eventCode } = req.body;
+        const { season, eventCode } = req.query;
         if (!(season && eventCode)) res.status(400).end({ error: 'Invalid input format' });
         try {
             const response = await getTeams(season, eventCode);
