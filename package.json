@@ -3,6 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@huggingface/inference": "^2.7.0",
+		"@langchain/community": "^0.2.18",
+		"@langchain/core": "^0.2.15",
+		"@langchain/groq": "^0.0.13",
 		"@mantine/charts": "^7.11.0",
 		"@mantine/code-highlight": "^7.11.1",
 		"@mantine/core": "^7.11.0",
@@ -16,6 +20,7 @@
 		"dotenv": "^16.4.5",
 		"eslint": "^8.57.0",
 		"eslint-config-next": "^14.2.4",
+		"langchain": "^0.2.9",
 		"next": "^14.2.4",
 		"nodemon": "^2.0.22",
 		"react": "^18.2.0",
