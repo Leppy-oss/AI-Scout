@@ -5,7 +5,6 @@ import '../styles/global.css';
 import '@mantine/core/styles.css';
 
 function MyApp({ Component, pageProps }) {
-
     return (
         <MantineProvider withGlobalStyles withNormalizeCSS defaultColorScheme='light' >
             <Layout>

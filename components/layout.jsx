@@ -1,4 +1,4 @@
-import { Box, useMantineColorScheme } from '@mantine/core';
+import { Box } from '@mantine/core';
 import Head from 'next/head'
 import { usePathname } from 'next/navigation';
 import Footer from './footer';
@@ -8,7 +8,6 @@ import constants from '../lib/constants';
 export default function Layout({ children }) {
     const rawPathname = usePathname().slice(1).split('/').pop();
     const pathname = rawPathname.charAt(0).toUpperCase().concat(rawPathname.slice(1));
-    const { colorScheme, setColorScheme } = useMantineColorScheme();
 
     return (
         <div className='app'>
