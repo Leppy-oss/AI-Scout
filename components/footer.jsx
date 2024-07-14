@@ -1,17 +1,18 @@
-import { Container, Group, ActionIcon, rem, Image, Text } from '@mantine/core';
+import { Container, Group, ActionIcon, rem, Image, Text, useMantineColorScheme } from '@mantine/core';
 import { IconBrandX, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 import classes from '../styles/footer.module.css';
 import { useMobile } from '../lib/hooks';
 
 export default function Footer() {
     const mobile = useMobile();
+    const { colorScheme } = useMantineColorScheme();
 
     return (
         <div className={classes.footer}>
             <Container fluid className={classes.inner}>
                 <Group className={classes.links} align='center' wrap='nowrap' justify='space-between'>
                     <Group align='center' justify='center'>
-                        <Image mah={mobile? '2.5rem' : '3rem'} src='/logo.png' alt='site logo' />
+                        <Image mah={mobile? '2rem' : '2.5rem'} src={colorScheme == 'dark'? '/clogo-white.png' : '/clogo.png'} alt='8565 combined logo' />
                     </Group>
                     <Group gap={0} visibleFrom='xs'>
                         <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='#' >
@@ -25,7 +26,7 @@ export default function Footer() {
                         </ActionIcon>
                     </Group>
                     <Text c="dimmed" size="sm">
-                        © 2024 YOUR_NAME. All rights reserved.
+                        © 2024 Leppy-oss. All rights reserved.
                     </Text>
                 </Group>
             </Container>

@@ -19,7 +19,8 @@ import {
     Grid,
     Paper,
     Container,
-    ActionIcon
+    ActionIcon,
+    useMantineColorScheme
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import {
@@ -30,36 +31,37 @@ import {
 import classes from '../styles/header.module.css';
 import Link from 'next/link';
 import constants from '../lib/constants';
-import { useLoaded, useMobile } from '../lib/hooks';
+import { useMobile } from '../lib/hooks';
 import { useState } from 'react';
 
-export function Header({ colorScheme, setColorScheme }) {
+export function Header() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
     const [linksOpened, setLinksOpened] = useState([]);
     const theme = useMantineTheme();
-    const loaded = useLoaded();
     const mobile = useMobile();
+    const { colorScheme, setColorScheme } = useMantineColorScheme();
 
     const tabs = [
         {
-            name: 'Tab 1',
-            href: '#'
+            name: 'Home',
+            href: '/'
         },
         {
-            name: 'Tab 2',
-            href: '#'
+            name: 'Chat',
+            href: '/chat'
         },
         {
-            name: 'Tab 3',
-            href: '#',
+            name: 'About',
+            href: '/about'
+        },
+        {
+            name: 'API',
+            href: '/api',
             type: 'dropdown',
             dropdownItems: [
-                { name: 'Item 1', href: '#', description: 'Lorem ipsum dolor sit amet' },
-                { name: 'Item 2', href: '#', description: 'Lorem ipsum dolor sit amet' },
-                { name: 'Item 3', href: '#', description: 'Lorem ipsum dolor sit amet' },
-                { name: 'Item 4', href: '#', description: 'Lorem ipsum dolor sit amet' },
-                { name: 'Item 5', href: '#', description: 'Lorem ipsum dolor sit amet' },
-                { name: 'Item 6', href: '#', description: 'Lorem ipsum dolor sit amet' },
+                { name: 'Overview', href: '/', description: 'This feature is still in progress!' },
+                { name: 'Playground', href: '/playground', description: 'This feature is still in progress!' },
+                { name: 'Docs', href: '/docs', description: 'This feature is still in progress!' }
             ]
         }
     ];
@@ -77,7 +79,7 @@ export function Header({ colorScheme, setColorScheme }) {
             <header className={classes.header}>
                 <Group justify='space-between' h='100%' >
                     <Group align='center'>
-                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo.png' alt='site logo' />
+                        <Image mah={mobile ? '2.5rem' : '3rem'} src={colorScheme == 'dark'? '/logo-white.png' : '/logo.png'} alt='site logo' />
                         <Anchor
                             fw={900}
                             variant='gradient'
@@ -120,13 +122,13 @@ export function Header({ colorScheme, setColorScheme }) {
                                         <Container fluid className={classes.dropdownFooter}>
                                             <Container>
                                                 <Text fw={500} fz='md'>
-                                                    Items
+                                                    Pages
                                                 </Text>
                                                 <Grid mt='sm'>
                                                     {tab.dropdownItems.map(item =>
                                                         <Grid.Col span={4} key={item.name}>
                                                             <Paper radius='lg' shadow p='1em'>
-                                                                <Anchor underline='never' variant='gradient' gradient={{ from: 'blue', to: 'cyan' }} type='a' href={item.name}>
+                                                                <Anchor underline='never' variant='gradient' gradient={{ from: 'blue', to: 'pink' }} type='a' href={tab.href.concat(item.href)}>
                                                                     {item.name}
                                                                 </Anchor>
                                                                 <Text>{item.description}</Text>
@@ -140,13 +142,13 @@ export function Header({ colorScheme, setColorScheme }) {
                                                 <Group justify='space-between'>
                                                     <Container left={0} m={0} p={0}>
                                                         <Text fw={500} fz='md'>
-                                                            Browse random
+                                                            Quick Start
                                                         </Text>
                                                         <Text size='xs' c='dimmed'>
-                                                            Browse a random {tab.name}!
+                                                            Get a quick overview of the API
                                                         </Text>
                                                     </Container>
-                                                    <Button onClick={() => { }}>Go!</Button>
+                                                    <Link href={tab.href}><Button variant='outline'>Go!</Button></Link>
                                                 </Group>
                                             </Container>
                                         </Container>
@@ -161,21 +163,18 @@ export function Header({ colorScheme, setColorScheme }) {
                             </Link>;
                         })}
                     </Group>
-
-                    {loaded &&
-                        <Group gap='xs'>
-                            <ActionIcon
-                                variant='outline'
-                                color={colorScheme == 'dark' && 'orange'}
-                                onClick={() => setColorScheme(colorScheme == 'dark' ? 'light' : 'dark')}>
-                                {colorScheme == 'dark' ? <IconSun /> : <IconMoonStars />}
-                            </ActionIcon>
-                            <Container visibleFrom='md' p={0} m={0}>
-                                <Link href='#'><Button variant='gradient' gradient={{ from: 'pink', to: 'orange' }}>Special Button</Button></Link>
-                            </Container>
-                            <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom='sm' />
-                        </Group>
-                    }
+                    <Group gap='xs'>
+                        <ActionIcon
+                            variant='outline'
+                            color={colorScheme == 'dark' && 'orange'}
+                            onClick={() => setColorScheme(colorScheme == 'dark' ? 'light' : 'dark')}>
+                            {colorScheme == 'dark' ? <IconSun /> : <IconMoonStars />}
+                        </ActionIcon>
+                        <Container visibleFrom='md' p={0} m={0}>
+                            <Link href='#'><Button variant='gradient' gradient={{ from: 'pink', to: 'orange' }}>Special Button</Button></Link>
+                        </Container>
+                        <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom='sm' />
+                    </Group>
                 </Group>
             </header>
 
@@ -184,7 +183,7 @@ export function Header({ colorScheme, setColorScheme }) {
                 onClose={closeDrawer}
                 size='100%'
                 padding='md'
-                title={`${constants.SITE_NAME} | NAVIGATION`}
+                title={`${constants.SITE_NAME.toUpperCase()} | NAVIGATION`}
                 hiddenFrom='sm'
                 zIndex={1000000}
             >
@@ -203,7 +202,7 @@ export function Header({ colorScheme, setColorScheme }) {
                         </UnstyledButton>
                         <Collapse in={linksOpened[tab.name]}>{
                             tab.dropdownItems.map(item => <Container key={item.name}>
-                                <Anchor underline='never' href={item.href} className={classes.link} fw={600}>{item.name}</Anchor>
+                                <Anchor underline='never' href={tab.href.concat(item.href)} className={classes.link} fw={600}>{item.name}</Anchor>
                                 <Text>{item.description}</Text>
                             </Container>)
                         }</Collapse>
