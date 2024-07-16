@@ -45,7 +45,6 @@ export default async function longRunningResponse(req) {
 					new StringOutputParser(),
 				]);
 
-
 				const responseStream = new TransformStream();
 				const streamWriter = responseStream.writable.getWriter();
 				const encoder = new TextEncoder();

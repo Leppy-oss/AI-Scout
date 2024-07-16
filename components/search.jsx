@@ -6,13 +6,14 @@ export default function Search(props) {
 
     return (
         <TextInput
-            radius="xl"
-            size="md"
+            autoComplete='off'
+            radius='xl'
+            size='md'
             placeholder={props.placeholder}
             rightSectionWidth={42}
             leftSection={<IconSearch style={{ width: rem(18), height: rem(18) }} stroke={1.5} />}
             rightSection={
-                <ActionIcon type='submit' size={32} radius="xl" color={theme.primaryColor} variant="filled">
+                <ActionIcon {...props} type='submit' size={32} radius='xl' color={theme.primaryColor} variant='filled'>
                     <IconArrowRight style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
                 </ActionIcon>
             }

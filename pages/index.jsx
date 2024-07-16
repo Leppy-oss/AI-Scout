@@ -1,11 +1,11 @@
-import { Container, Text } from '@mantine/core';
+import { Container } from '@mantine/core';
 import Tryout from '../components/tryout';
-import Spline from '@splinetool/react-spline';
+import Hero from '../components/hero';
 
 export default function Home() {
     return (
-        <Container p={0} fluid>
-            <Spline scene='https://prod.spline.design/t8nmR-00DkpbcENZ/scene.splinecode' />
+        <Container id='home-container' p={0} fluid>
+            <Hero />
             <Tryout />
         </Container>
     );

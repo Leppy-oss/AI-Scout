@@ -1,7 +1,7 @@
 const teams = {};
 
 const storageContains = (season, eventCode) => Object.hasOwn(teams, season) && Object.hasOwn(teams[season], eventCode);
-const populateStorage = async(season, eventCode) => {
+const populateStorage = async (season, eventCode) => {
 	const fTeams = await (await fetch(`${process.env.EVENTS_URL}/${season}/${eventCode}/teams`)).json();
 	teams[season] = {};
 	teams[season][eventCode] = {};
@@ -22,12 +22,16 @@ export async function getTeams(season, eventCode) {
 }
 
 export async function getEvents(season) {
-	const query = JSON.stringify({
-		query: `{
-          eventsSearch(season: 2023) {
-                name
-                code
-            }
-        }`
-	})
+	return await (await fetch(process.env.GRAPHQL_URL, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify({
+			query: `{
+				eventsSearch(season: ${season}) {
+					name
+					code
+				}
+			}`
+		})
+	})).json();
 }

@@ -26,7 +26,8 @@ import { useDisclosure } from '@mantine/hooks';
 import {
     IconChevronDown,
     IconSun,
-    IconMoonStars
+    IconMoonStars,
+    IconBrandGithub
 } from '@tabler/icons-react';
 import classes from '../styles/header.module.css';
 import Link from 'next/link';
@@ -75,11 +76,12 @@ export function Header() {
     };
 
     return (
-        <Box pb={60}>
+        <Box>
             <header className={classes.header}>
                 <Group justify='space-between' h='100%' >
                     <Group align='center'>
-                        <Image mah={mobile ? '2.5rem' : '3rem'} src={colorScheme == 'dark'? '/logo-white.png' : '/logo.png'} alt='site logo' />
+                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-white.png' alt='site logo' lightHidden />
+                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo.png' alt='site logo' darkHidden />
                         <Anchor
                             fw={900}
                             variant='gradient'
@@ -164,14 +166,21 @@ export function Header() {
                         })}
                     </Group>
                     <Group gap='xs'>
-                        <ActionIcon
-                            variant='outline'
-                            color={colorScheme == 'dark' && 'orange'}
+                        <ActionIcon variant='outline' lightHidden
+                            color='orange'
                             onClick={() => setColorScheme(colorScheme == 'dark' ? 'light' : 'dark')}>
-                            {colorScheme == 'dark' ? <IconSun /> : <IconMoonStars />}
+                            <IconSun />
+                        </ActionIcon>
+                        <ActionIcon variant='outline' darkHidden
+                            onClick={() => setColorScheme(colorScheme == 'dark' ? 'light' : 'dark')}>
+                            <IconMoonStars />
                         </ActionIcon>
                         <Container visibleFrom='md' p={0} m={0}>
-                            <Link href='#'><Button variant='gradient' gradient={{ from: 'pink', to: 'orange' }}>Special Button</Button></Link>
+                            <Link target='_blank' href='https://github.com/Leppy-oss/AI-Scout'>
+                                <Button variant='gradient' gradient={{ from: 'pink', to: 'orange' }} leftSection={<IconBrandGithub />}>
+                                    Source Code
+                                </Button>
+                            </Link>
                         </Container>
                         <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom='sm' />
                     </Group>
