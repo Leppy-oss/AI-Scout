@@ -12,7 +12,6 @@ import {
     Burger,
     Drawer,
     Collapse,
-    ScrollArea,
     rem,
     useMantineTheme,
     Image,
@@ -80,8 +79,7 @@ export function Header() {
             <header className={classes.header}>
                 <Group justify='space-between' h='100%' >
                     <Group align='center'>
-                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-white.png' alt='site logo' lightHidden />
-                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo.png' alt='site logo' darkHidden />
+                        <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-outline.svg' alt='site logo' />
                         <Anchor
                             fw={900}
                             variant='gradient'
@@ -90,7 +88,7 @@ export function Header() {
                             underline='never'
                             type='a'
                             href='/'
-                        >{constants.SITE_NAME}</Anchor>
+                        >{constants.SITE_NAME.toUpperCase()}</Anchor>
                     </Group>
 
                     <Group h='100%' gap={0} visibleFrom='sm' wrap='nowrap'>

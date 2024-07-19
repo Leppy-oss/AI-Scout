@@ -7,6 +7,7 @@ import '@mantine/core/styles.css';
 import { useEffect } from 'react';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import GsapProvider from '../components/gsap-provider';
 
 function MyApp({ Component, pageProps }) {
     useEffect(() => {
@@ -18,9 +19,11 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <MantineProvider withGlobalStyles withNormalizeCSS defaultColorScheme='light' >
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <GsapProvider>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </GsapProvider>
         </MantineProvider>
     );
 }

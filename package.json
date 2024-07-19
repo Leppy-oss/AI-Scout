@@ -3,6 +3,7 @@
 	"version": "0.1.1",
 	"private": true,
 	"dependencies": {
+		"@gsap/react": "^2.1.1",
 		"@huggingface/inference": "^2.7.0",
 		"@langchain/community": "^0.2.18",
 		"@langchain/core": "^0.2.15",
@@ -24,6 +25,7 @@
 		"dotenv": "^16.4.5",
 		"eslint": "^8.57.0",
 		"eslint-config-next": "^14.2.4",
+		"gsap": "^3.12.5",
 		"langchain": "^0.2.9",
 		"next": "^14.2.4",
 		"nodemon": "^2.0.22",

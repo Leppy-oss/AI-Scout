@@ -20,7 +20,7 @@ export default function Layout({ children }) {
             <main>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
                 <Header />
-                <Box ml={0} mr={0}>
+                <Box>
                     {children}
                 </Box>
                 <Footer />

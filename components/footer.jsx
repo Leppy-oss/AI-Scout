@@ -11,8 +11,7 @@ export default function Footer() {
             <Container fluid className={classes.inner}>
                 <Group className={classes.links} align='center' wrap='nowrap' justify='space-between'>
                     <Group align='center' justify='center'>
-                        <Image mah={mobile ? '2rem' : '2.5rem'} src='/clogo-white.png' alt='8565 combined logo' lightHidden />
-                        <Image mah={mobile ? '2rem' : '2.5rem'} src='/clogo.png' alt='8565 combined logo' darkHidden />
+                        <Image mah={mobile ? '2rem' : '2.5rem'} src='/clogo.png' alt='8565 combined logo' />
                     </Group>
                     <Group gap={0} visibleFrom='xs'>
                         <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='#' >
