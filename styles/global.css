@@ -4,3 +4,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.img-flip-x {
+    transform: rotateY(180deg);
+}
+
+.img-flip-y {
+    transform: rotateX(180deg);
+}

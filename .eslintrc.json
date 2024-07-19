@@ -5,6 +5,7 @@
         "@next/next/no-img-element": "off",
         "import/no-anonymous-default-export": "off",
         "eslint-plugin-import/no-anonymous-default-export": "off",
-        "eslint-plugin-unicorn/no-anonymous-default-export": "off"
+        "eslint-plugin-unicorn/no-anonymous-default-export": "off",
+        "react/no-unescaped-entities": "off"
     }
 }

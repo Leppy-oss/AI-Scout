@@ -1,4 +1,4 @@
-import { Box, Center, Container, Group, LoadingOverlay, MultiSelect, Select, Stack, Textarea as TextArea, TextInput, Title } from '@mantine/core';
+import { Box, Center, Container, Group, LoadingOverlay, MultiSelect, Select, Stack, Textarea as TextArea, Text, Title } from '@mantine/core';
 import Search from './search';
 import { fetchWithHandling, postWithHandling } from '../lib/axios-ex';
 import { useEffect, useState } from 'react';
@@ -49,12 +49,15 @@ export default function Tryout() {
     }, [season, eventCode]);
 
     return (
-        <Container fluid>
+        <Container fluid mt='xl'>
             <Center>
                 <Title mb='md' order={1} size={mobile? '3rem' : '4rem'}>Try it Out</Title>
             </Center>
             <Center mb='md'>
                 <IconArrowNarrowDown size='2rem' />
+            </Center>
+            <Center>
+                <Text mb='xl' fw={700} order={1} size={mobile? '3rem' : '4rem'} variant='gradient' gradient={{from: 'blue', to: 'pink'}}>AI-Scout</Text>
             </Center>
             <Center>
                 <form onSubmit={async e => {
