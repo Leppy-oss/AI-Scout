@@ -31,9 +31,10 @@ export default function ScrollHero() {
             } catch (e) { }
         }
         window.addEventListener('scroll', () => {
+            const startScroll = canvas.offsetTop - canvas.offsetHeight * 0.75;
+            const endScroll = canvas.offsetTop + canvas.offsetHeight * 0.25;
             const scrollTop = document.documentElement.scrollTop;
-            const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollFraction = scrollTop / maxScrollTop - 0.1;
+            const scrollFraction = (scrollTop - startScroll) / (endScroll - startScroll);
             const frameIndex = Math.max(0, Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount)));
             requestAnimationFrame(() => updateImg(frameIndex));
         });

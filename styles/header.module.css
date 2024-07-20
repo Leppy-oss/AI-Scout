@@ -57,6 +57,10 @@
     animation: slideUp 0.35s ease-out;
 }
 
+.shouldStick .header-bg {
+    background-color: red;
+}
+
 @keyframes slideUp {
     from {
         transform: translateY(0%);

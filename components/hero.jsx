@@ -1,12 +1,14 @@
-import { Text, Grid, Image, Container } from '@mantine/core';
-import { useMobile } from '../lib/hooks';
+import { Text, Grid, Image } from '@mantine/core';
+import { useMobile, useWidescreen } from '../lib/hooks';
+import { useEffect } from 'react';
 
 export default function Hero() {
     const mobile = useMobile();
+    const widescreen = useWidescreen();
 
     return (
         <Grid my={mobile ? 'sm' : '7rem'} align='center'>
-            <Grid.Col ta={mobile ? 'center' : 'left'} pb='xl' span={mobile ? 12 : 7} order={mobile ? 1 : 0} data-aos='fade-up' data-aos-anchor='#home-container'>
+            <Grid.Col style={{ zoom: widescreen? 2 : 1 }} ta={mobile ? 'center' : 'left'} pb='xl' span={mobile ? 12 : 7} order={mobile ? 1 : 0} data-aos='fade-up' data-aos-anchor='#home-container'>
                 <Text size={mobile ? '3rem' : '5rem'} mb='xl'>
                     <Text span fw={700} variant='gradient' gradient={{ from: 'blue', to: 'pink' }}>
                         Generative AI

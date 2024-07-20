@@ -76,25 +76,29 @@ export function Header() {
 
     useEffect(() => {
         const header = document.getElementById('header');
+        const headers = document.querySelectorAll('.header-bg');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > header.clientHeight * 7) {
                 header.classList.add(classes.shouldStick);
                 header.classList.remove(classes.unstick);
-                header.style.backgroundColor = colorScheme == 'dark' ? theme.colors.dark[6] : 'white';
+                headers.forEach(h => h.style.visibility = 'visible');
             }
             else if (header.classList.contains(classes.shouldStick)) {
-                console.log('removed stuff')
                 header.classList.add(classes.unstick);
                 header.classList.remove(classes.shouldStick);
-                header.style.backgroundColor = 'transparent';
+                header.style.backgroundColor = 'rgba(150, 150, 150, 0.4)';
+                headers.forEach(h => h.style.visibility = 'hidden');
             }
         });
     }, []);
 
     return (
-        <Box id='header' top={0} style={{ zIndex: 10000 }}>
-            <header className={classes.header} style={{ borderBottomWidth: 0 }}>
-                <Group justify='space-between' h='100%' >
+        <Box id='header' top={0} style={{ zIndex: 10000 }} h='fit-content'>
+            <Container className='header-bg' p={0} fluid w='100%' bg='white' pos='absolute' h={rem(60)} style={{ zIndex: -1, visibility: 'hidden' }} darkHidden />
+            <Container className='header-bg' p={0} fluid w='100%' bg={theme.colors.dark[6]} pos='absolute' h={rem(60)} style={{ zIndex: -1, visibility: 'hidden' }} lightHidden />
+            <header className={classes.header} style={{ borderBottomWidth: 0, backdropFilter: 'blur(20px)' }}>
+                <Group justify='space-between' h='100%' wrap='nowrap' >
                     <Group align='center'>
                         <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-outline.svg' alt='site logo' />
                         <Anchor

@@ -1,4 +1,4 @@
-import { Button, Checkbox, Container, Group, Image, Switch, Text } from '@mantine/core';
+import { Button, Checkbox, Container, Divider, Group, Image, Switch, Text } from '@mantine/core';
 import Tryout from '../components/tryout';
 import Hero from '../components/hero';
 import ScrollHero from '../components/scroll-hero';
@@ -13,7 +13,7 @@ export default function Home() {
     const mobile = useMobile();
 
     const DummySwitch = ({ Icon, children }) => (
-        <Group mb='sm' style={{ zoom: mobile ? 0.75 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
+        <Group mb='sm' style={{ zoom: mobile ? 0.7 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
             <Switch checked={true} readOnly size='xl' thumbIcon={
                 <Icon style={{ width: '24', height: '24' }}
                     color={theme.colors.blue[6]}
@@ -33,10 +33,15 @@ export default function Home() {
     return (
         <Container id='home-container' p={0} fluid>
             <Image src='/banner.svg' alt='' pos='absolute' top={0} style={{
-                opacity: 0.25,
+                opacity: 0.5,
                 zIndex: -1000,
                 clipPath: 'polygon(0 0, 100% 0%, 100% 10vh, 0% 30vh)'
-            }} />
+            }} darkHidden />
+            <Image src='/banner.svg' alt='' pos='absolute' top={0} style={{
+                opacity: 0.3,
+                zIndex: -1000,
+                clipPath: 'polygon(0 0, 100% 0%, 100% 10vh, 0% 30vh)'
+            }} lightHidden />
             <Container mx='xl' p={0} fluid>
                 <Hero />
                 <Section text='What is AI-Scout?' my='xl' description={
@@ -79,6 +84,7 @@ export default function Home() {
                     <DummyCheckbox>In-Depth Analysis</DummyCheckbox>
                     <DummyCheckbox>Score Reasoning</DummyCheckbox>
                 </Section>
+                <Divider my='xl' size='xl' mx='sm' />
             </Container>
             <TechStack />
         </Container>

@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <MantineProvider withGlobalStyles withNormalizeCSS defaultColorScheme='dark' theme={createTheme({
-            black: 'rgb(0, 0, 0)'
+            breakpoints: {
+                xl: '140em'
+            }
         })}>
             <GsapProvider>
                 <Layout>
