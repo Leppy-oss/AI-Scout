@@ -32,7 +32,7 @@ import classes from '../styles/header.module.css';
 import Link from 'next/link';
 import constants from '../lib/constants';
 import { useMobile } from '../lib/hooks';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Header() {
     const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
@@ -74,9 +74,26 @@ export function Header() {
         });
     };
 
+    useEffect(() => {
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > header.clientHeight * 7) {
+                header.classList.add(classes.shouldStick);
+                header.classList.remove(classes.unstick);
+                header.style.backgroundColor = colorScheme == 'dark' ? theme.colors.dark[6] : 'white';
+            }
+            else if (header.classList.contains(classes.shouldStick)) {
+                console.log('removed stuff')
+                header.classList.add(classes.unstick);
+                header.classList.remove(classes.shouldStick);
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+    }, []);
+
     return (
-        <Box>
-            <header className={classes.header}>
+        <Box id='header' top={0} style={{ zIndex: 10000 }}>
+            <header className={classes.header} style={{ borderBottomWidth: 0 }}>
                 <Group justify='space-between' h='100%' >
                     <Group align='center'>
                         <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-outline.svg' alt='site logo' />

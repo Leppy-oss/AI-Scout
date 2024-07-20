@@ -28,13 +28,13 @@ export default function ScrollHero() {
                 img = imgs[i];
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
                 ctx.drawImage(img, 0, 0);
-            } catch (e) {}
+            } catch (e) { }
         }
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop;
             const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollFraction = scrollTop / maxScrollTop;
-            const frameIndex = Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount));
+            const scrollFraction = scrollTop / maxScrollTop - 0.1;
+            const frameIndex = Math.max(0, Math.min(frameCount - 1, Math.ceil(scrollFraction * frameCount)));
             requestAnimationFrame(() => updateImg(frameIndex));
         });
     }, [canvasRef]);

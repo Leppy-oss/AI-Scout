@@ -7,7 +7,7 @@ export default function Section({ text, description, children, src, additionalCo
     return (
         <>
             <Divider my='xl' size='xl' mx='sm' />
-            <Grid {...props} align='center' mb='xl'>
+            <Grid align='center' my='5rem' {...props}>
                 <Grid.Col span={mobile ? 12 : 6} ta={mobile ? 'center' : 'left'} order={reversed ? 1 : 0}>
                     <Text mb='xl' fw={500} size={mobile ? '2.5rem' : '3.5rem'}>
                         {text}

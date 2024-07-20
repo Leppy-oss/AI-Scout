@@ -1,4 +1,4 @@
-import { Button, Checkbox, Container, Group, Switch, Text } from '@mantine/core';
+import { Button, Checkbox, Container, Group, Image, Switch, Text } from '@mantine/core';
 import Tryout from '../components/tryout';
 import Hero from '../components/hero';
 import ScrollHero from '../components/scroll-hero';
@@ -13,7 +13,7 @@ export default function Home() {
     const mobile = useMobile();
 
     const DummySwitch = ({ Icon, children }) => (
-        <Group mb='sm' style={{ zoom: mobile? 0.75 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
+        <Group mb='sm' style={{ zoom: mobile ? 0.75 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
             <Switch checked={true} readOnly size='xl' thumbIcon={
                 <Icon style={{ width: '24', height: '24' }}
                     color={theme.colors.blue[6]}
@@ -22,9 +22,9 @@ export default function Home() {
             <Text size='xl' fw={500}>{children}</Text>
         </Group>
     );
-    
+
     const DummyCheckbox = ({ children }) => (
-        <Group mb='sm' style={{ zoom: mobile? 0.75 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
+        <Group mb='sm' style={{ zoom: mobile ? 0.75 : 1.5 }} ml='xl' mt={mobile && 'xl'}>
             <Checkbox checked={true} readOnly size='xl' />
             <Text size='xl' fw={500}>{children}</Text>
         </Group>
@@ -32,18 +32,23 @@ export default function Home() {
 
     return (
         <Container id='home-container' p={0} fluid>
+            <Image src='/banner.svg' alt='' pos='absolute' top={0} style={{
+                opacity: 0.25,
+                zIndex: -1000,
+                clipPath: 'polygon(0 0, 100% 0%, 100% 10vh, 0% 30vh)'
+            }} />
             <Container mx='xl' p={0} fluid>
                 <Hero />
-                <Section text='What is AI-Scout?' description={
+                <Section text='What is AI-Scout?' my='xl' description={
                     <>
                         AI-Scout is the world's <Text span fw={700} c='blue'>first </Text>
                         FIRST Tech Challenge (FTC) scouting system that fully utilizes the power of
                         <Text span fw={700} c='blue'> generative AI.</Text>
                     </>
                 } additionalContent={
-                    <Link href='/chat'><Button mt='xl' size='xl' rightSection={<IconArrowNarrowRight />} variant='gradient' gradient={{from: 'pink', to: 'orange'}}>
+                    <Link href='/chat'><Button mt='xl' size='xl' rightSection={<IconArrowNarrowRight />} variant='gradient' gradient={{ from: 'pink', to: 'orange' }}>
                         Try it Out
-                        </Button></Link>
+                    </Button></Link>
                 }>
                     <ScrollHero />
                 </Section>
