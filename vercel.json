@@ -1,7 +1,7 @@
 {
 	"git": {
 		"deploymentEnabled": {
-			"dev": false
+			"dev-mobile-kit": false
 		}
 	}
 }
