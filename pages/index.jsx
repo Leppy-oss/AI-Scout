@@ -33,12 +33,12 @@ export default function Home() {
     return (
         <Container id='home-container' p={0} fluid>
             <Image src='/banner.svg' alt='' pos='absolute' top={0} style={{
-                opacity: 0.5,
+                opacity: 0.4,
                 zIndex: -1000,
                 clipPath: 'polygon(0 0, 100% 0%, 100% 10vh, 0% 30vh)'
             }} darkHidden />
             <Image src='/banner.svg' alt='' pos='absolute' top={0} style={{
-                opacity: 0.3,
+                opacity: 0.2,
                 zIndex: -1000,
                 clipPath: 'polygon(0 0, 100% 0%, 100% 10vh, 0% 30vh)'
             }} lightHidden />

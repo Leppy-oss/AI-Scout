@@ -87,7 +87,6 @@ export function Header() {
             else if (header.classList.contains(classes.shouldStick)) {
                 header.classList.add(classes.unstick);
                 header.classList.remove(classes.shouldStick);
-                header.style.backgroundColor = 'rgba(150, 150, 150, 0.4)';
                 headers.forEach(h => h.style.visibility = 'hidden');
             }
         });
