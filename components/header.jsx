@@ -97,7 +97,7 @@ export function Header() {
             <Container className='header-bg' p={0} fluid w='100%' bg='white' pos='absolute' h={rem(60)} style={{ zIndex: -1, visibility: 'hidden' }} darkHidden />
             <Container className='header-bg' p={0} fluid w='100%' bg={theme.colors.dark[6]} pos='absolute' h={rem(60)} style={{ zIndex: -1, visibility: 'hidden' }} lightHidden />
             <header className={classes.header} style={{ borderBottomWidth: 0, backdropFilter: 'blur(20px)' }}>
-                <Group justify='space-between' h='100%' >
+                <Group justify='space-between' h='100%' wrap='nowrap' >
                     <Group align='center'>
                         <Image mah={mobile ? '2.5rem' : '3rem'} src='/logo-outline.svg' alt='site logo' />
                         <Anchor
