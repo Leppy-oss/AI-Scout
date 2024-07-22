@@ -14,13 +14,13 @@ export default function Footer() {
                         <Image mah={mobile ? '2rem' : '2.5rem'} src='/clogo.png' alt='8565 combined logo' />
                     </Group>
                     <Group gap={0} visibleFrom='xs'>
-                        <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='#' >
+                        <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='https://x.com/technicbots' >
                             <IconBrandX style={{ width: rem(18), height: rem(18) }} />
                         </ActionIcon>
-                        <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='#' >
+                        <ActionIcon size='lg' color='gray' variant='subtle' stroke={1.5} component='a' target='_blank' href='https://www.youtube.com/@technicbots8565' >
                             <IconBrandYoutube style={{ width: rem(18), height: rem(18) }} />
                         </ActionIcon>
-                        <ActionIcon size='lg' color='gray' variant='subtle' component='a' target='_blank' href='#'>
+                        <ActionIcon size='lg' color='gray' variant='subtle' component='a' target='_blank' href='https://www.instagram.com/technicbots/'>
                             <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
                         </ActionIcon>
                     </Group>

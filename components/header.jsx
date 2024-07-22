@@ -195,7 +195,10 @@ export function Header() {
                         </ActionIcon>
                         <Container visibleFrom='md' p={0} m={0}>
                             <Link target='_blank' href='https://github.com/Leppy-oss/AI-Scout'>
-                                <Button variant='gradient' gradient={{ from: 'pink', to: 'orange' }} leftSection={<IconBrandGithub />}>
+                                <Button
+                                    variant='gradient'
+                                    gradient={{ from: 'pink', to: 'orange' }}
+                                    leftSection={<IconBrandGithub />} >
                                     Source Code
                                 </Button>
                             </Link>
